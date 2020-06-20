@@ -1,0 +1,15 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/html/magento/app/app/code/Burst/P2p
+permissions:
+  - object: /var/www/html/magento/app/app/code/Burst/P2p
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+hooks:
+  BeforeInstall:
+    - location: scripts/clearFolder.sh
+      timeout: 180
+      runas: root
